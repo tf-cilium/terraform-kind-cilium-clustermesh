@@ -43,8 +43,8 @@ module "cilium_clustermesh2" {
 }
 
 resource "cilium_clustermesh_connection" "this" {
-  destination_context = "kind-${var.kind.mesh2.name}"
-  provider            = cilium.mesh1
+  destination_contexts = ["kind-${var.kind.mesh2.name}"]
+  provider             = cilium.mesh1
   depends_on = [
     module.cilium_clustermesh1,
     module.cilium_clustermesh2,
